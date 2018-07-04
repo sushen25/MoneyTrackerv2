@@ -51,6 +51,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="totalMoneyLable" destination="Rb0-8d-BFC" id="7gp-Kp-oCr"/>
                         <segue destination="ubQ-XJ-wX1" kind="show" identifier="goToSpecifics" id="Je8-gB-wBd"/>
                     </connections>
                 </viewController>
@@ -345,32 +346,22 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elW-Fz-MB1">
-                                <rect key="frame" x="10" y="44" width="61" height="30"/>
-                                <state key="normal" title="&lt; Cancle"/>
+                                <rect key="frame" x="10" y="44" width="48" height="30"/>
+                                <state key="normal" title="&lt; Back"/>
                                 <connections>
-                                    <action selector="canclePressed:" destination="lCJ-kc-Zak" eventType="touchUpInside" id="eKB-kU-ukv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAi-eg-aIE">
-                                <rect key="frame" x="327" y="44" width="38" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="donePressed:" destination="lCJ-kc-Zak" eventType="touchUpInside" id="dF7-W8-rNe"/>
+                                    <action selector="backButtonPressed:" destination="ubQ-XJ-wX1" eventType="touchUpInside" id="EKb-WW-SG5"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.54117647058823526" green="0.84313725490196079" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="elW-Fz-MB1" firstAttribute="leading" secondItem="ASd-zw-GZb" secondAttribute="leading" constant="10" id="AaE-8l-QXg"/>
-                            <constraint firstItem="YAi-eg-aIE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="elW-Fz-MB1" secondAttribute="trailing" constant="110" id="D17-pm-f3j"/>
+                            <constraint firstItem="ASd-zw-GZb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="elW-Fz-MB1" secondAttribute="trailing" constant="200" id="K3Q-3c-rL6"/>
                             <constraint firstItem="kOa-nH-CMD" firstAttribute="bottom" secondItem="ASd-zw-GZb" secondAttribute="bottom" id="Rfc-kG-whH"/>
                             <constraint firstItem="kOa-nH-CMD" firstAttribute="leading" secondItem="ASd-zw-GZb" secondAttribute="leading" id="WEI-RN-PBy"/>
                             <constraint firstItem="kOa-nH-CMD" firstAttribute="top" secondItem="PFX-Ff-d78" secondAttribute="bottom" constant="50" id="hTK-sB-E46"/>
                             <constraint firstItem="PFX-Ff-d78" firstAttribute="trailing" secondItem="ASd-zw-GZb" secondAttribute="trailing" constant="-10" id="iR4-90-wEB"/>
-                            <constraint firstItem="ASd-zw-GZb" firstAttribute="trailing" secondItem="YAi-eg-aIE" secondAttribute="trailing" constant="10" id="oJ3-2o-V0E"/>
                             <constraint firstItem="elW-Fz-MB1" firstAttribute="top" secondItem="ASd-zw-GZb" secondAttribute="top" id="p4C-8J-von"/>
-                            <constraint firstItem="YAi-eg-aIE" firstAttribute="top" secondItem="ASd-zw-GZb" secondAttribute="top" id="qxi-GB-HNu"/>
                             <constraint firstItem="PFX-Ff-d78" firstAttribute="leading" secondItem="ASd-zw-GZb" secondAttribute="leading" constant="10" id="uAu-kU-uQS"/>
                             <constraint firstItem="kOa-nH-CMD" firstAttribute="trailing" secondItem="ASd-zw-GZb" secondAttribute="trailing" id="wAI-oG-bdw"/>
                             <constraint firstItem="PFX-Ff-d78" firstAttribute="top" secondItem="ASd-zw-GZb" secondAttribute="top" constant="50" id="zj2-w0-b6H"/>

@@ -8,11 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SpecificViewControllerDelegate {
 
+    //instance vars
+    var totalMoney : Int = 0
+    var moneyArray : [Int] = [0, 0, 0, 0]
+    
+    
+    
+    @IBOutlet weak var totalMoneyLable: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        totalMoneyLable.text = "$\(totalMoney)"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +36,25 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "goToSpecifics", sender: self)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToSpecifics") {
+            
+            let specificVC = segue.destination as! SpecificsViewController
+            
+            
+            specificVC.delegate = self
+            specificVC.moneyInAccounts = moneyArray
+            
+            
+        }
+    }
+    func getTotalAmount(totalAmountMoney: Int, moneyAccountArray: [Int]) {
+        totalMoney = totalAmountMoney
+        moneyArray = moneyAccountArray
+        viewDidLoad()
+    }
+    
     
 }
 

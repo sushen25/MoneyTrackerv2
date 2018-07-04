@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol SpecificViewControllerDelegate {
+    func getTotalAmount(totalAmountMoney : Int, moneyAccountArray : [Int])
+}
+
 class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
+    
+    var delegate : SpecificViewControllerDelegate?
     
     // MARK: - user interface variables
     
     @IBOutlet var accountLables: [UILabel]!
     @IBOutlet var moneyLables: [UILabel]!
-    var moneyInAccounts : [Int] = [100, 300, 200, 1000]
+    var moneyInAccounts : [Int] = [Int]()
     
     
     
@@ -38,10 +44,10 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         accountLables[3].text = "ACC"
         
         
-        for item in 0...progressBars.count {
-            progressBarWidthArray[item].constant = 0
-            setMoneyLable(sectionNo: item + 1, amount: moneyInAccounts[item])
-            setProportionalWidthOfBar(account: item + 1, amountOfAccount: moneyInAccounts[item])
+        for item in 1...progressBars.count + 1 {
+            print(item)
+            setMoneyLable(sectionNo: item)
+            setProportionalWidthOfBar(account: item)
             
         }
         
@@ -52,7 +58,7 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //MARK: - Buttons
     @IBAction func accountButtonPressed(_ sender: UIButton) {
         
         senderAcc = sender.tag
@@ -61,6 +67,15 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         
         
     }
+    
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            self.delegate?.getTotalAmount(totalAmountMoney: self.sumOfArray(array: self.moneyInAccounts), moneyAccountArray: self.moneyInAccounts)
+        }
+    }
+    
+    
     
     
     //MARK: - preparing for segues
@@ -84,11 +99,7 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         // resetting the array
         moneyInAccounts[accountNumber - 1] = newMoneyAmount
         
-        for item in 0...moneyInAccounts.count - 1 {
-            setProportionalWidthOfBar(account: item + 1, amountOfAccount: moneyInAccounts[item])
-        }
-        
-        setMoneyLable(sectionNo: accountNumber, amount: newMoneyAmount)
+        viewDidLoad()
         
         
     }
@@ -100,15 +111,21 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     func setWidthOfBar(sectionNo : Int, setWidth : Double) {
         
         //section numbers start from 1 to end
-        progressBarWidthArray[sectionNo - 1].constant = CGFloat(setWidth)
+        
+        if (setWidth > 0) {
+            progressBarWidthArray[sectionNo - 1].constant = CGFloat(setWidth)
+            
+        }
         self.view.layoutIfNeeded()
         
     }
     
     
-    func setMoneyLable(sectionNo : Int, amount : Int) {
+    func setMoneyLable(sectionNo : Int) {
         if(sectionNo >= 1 && sectionNo <= 4) {
         let moneyLable = moneyLables[sectionNo - 1]
+        let amount = moneyInAccounts[sectionNo - 1]
+        
         
         moneyLable.text = "$\(amount)"
             
@@ -116,9 +133,10 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         
     }
     
-    func setProportionalWidthOfBar(account : Int, amountOfAccount : Int) {
+    func setProportionalWidthOfBar(account : Int) {
         let totalMoney : Int = sumOfArray(array: moneyInAccounts)
         let widthOfTotalBar = Double(progressBarBackground.frame.width)
+        let amountOfAccount = moneyInAccounts[account - 1]
         
         let percentOfProgressBar : Double = Double(amountOfAccount)/Double(totalMoney)
         

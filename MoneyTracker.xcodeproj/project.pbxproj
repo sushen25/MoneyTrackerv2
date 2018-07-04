@@ -54,6 +54,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD3E85D020ECA58400064014 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DD46A31820E8D569002928B3 = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +82,7 @@
 		DD46A32320E8D569002928B3 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				DD742A0C20E8D65A004B7BA0 /* Model */,
+				DD3E85D020ECA58400064014 /* Model */,
 				DD742A0D20E8D663004B7BA0 /* View */,
 				DD742A0E20E8D671004B7BA0 /* Controller */,
 				DD46A32E20E8D56B002928B3 /* Assets.xcassets */,
@@ -83,13 +90,6 @@
 				DD46A32B20E8D569002928B3 /* MoneyTracker.xcdatamodeld */,
 			);
 			path = MoneyTracker;
-			sourceTree = "<group>";
-		};
-		DD742A0C20E8D65A004B7BA0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DD742A0D20E8D663004B7BA0 /* View */ = {
