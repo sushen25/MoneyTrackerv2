@@ -7,8 +7,6 @@ use_frameworks!
 
 # Pods for MoneyTracker
 
-pod 'Firebase'
-pod 'Firebase/Database'
 pod 'SVProgressHUD'
 
 end
