@@ -22,6 +22,9 @@ class ChangeViewController: UIViewController {
     @IBOutlet weak var moneyAmount: UIButton!
     @IBOutlet weak var changeLable: UILabel!
     
+    @IBOutlet weak var enterAmount: UIButton!
+    
+    
     //data elements
     var moneyInAccount : Int = 0
     var accName : String = ""
@@ -50,7 +53,7 @@ class ChangeViewController: UIViewController {
         
         let changeConstant : Int = 10
         var textString : String = ""
-        
+        enterAmount.isEnabled = false
         
         if(sender.tag == 0) {
             // up arrow pressed
@@ -65,6 +68,8 @@ class ChangeViewController: UIViewController {
             changeAmount += arrowChangeAmount
             moneyInAccount += arrowChangeAmount
             updateUI()
+            enterAmount.isEnabled = true
+            
             
             arrowChangeAmount = 0
         }
@@ -81,7 +86,6 @@ class ChangeViewController: UIViewController {
         }
         
         textString += "\(arrowChangeAmount)"
-        print(textString)
         if(sender.tag != 2) {
             // only set title is ok button is not pressed
             moneyAmount.setTitle(textString, for: .normal)
@@ -136,7 +140,6 @@ class ChangeViewController: UIViewController {
     func dealWithChangeAmountAlert() {
         
         if(isStrNumeric(str: moneyTextFieldText)) {
-            print("Good data recieved")
             let newMoney = Int(moneyTextFieldText)!
             changeAmount += (newMoney - moneyInAccount)
             moneyInAccount = Int(moneyTextFieldText)!

@@ -19,35 +19,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-8d-BFC">
-                                <rect key="frame" x="0.0" y="192" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMG-AS-X9X">
-                                <rect key="frame" x="112" y="390" width="150" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="W4l-Ek-29f">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5M-AT-J3N">
-                                        <rect key="frame" x="25" y="25" width="100" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                        <state key="normal" title="Specifics">
-                                            <color key="titleColor" red="0.50980392156862742" green="0.73725490196078436" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="specificButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cz1-KH-pfO"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-m0-q78">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-8d-BFC">
+                                                <rect key="frame" x="111.33333333333333" y="162" width="152.33333333333337" height="42"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Rb0-8d-BFC" firstAttribute="centerX" secondItem="3aW-m0-q78" secondAttribute="centerX" id="3kf-5f-JQB"/>
+                                            <constraint firstItem="Rb0-8d-BFC" firstAttribute="centerY" secondItem="3aW-m0-q78" secondAttribute="centerY" id="F1S-az-oVN"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHl-06-iQY">
+                                        <rect key="frame" x="0.0" y="367" width="375" height="367"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMG-AS-X9X" userLabel="SpecificsButton">
+                                                <rect key="frame" x="112" y="128" width="150" height="110.33333333333331"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5M-AT-J3N">
+                                                        <rect key="frame" x="26.666666666666657" y="35.333333333333371" width="97" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                                        <state key="normal" title="Specifics">
+                                                            <color key="titleColor" red="0.50980392156862742" green="0.73725490196078436" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="specificButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cz1-KH-pfO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="l5M-AT-J3N" firstAttribute="centerY" secondItem="AMG-AS-X9X" secondAttribute="centerY" id="M19-Kz-yss"/>
+                                                    <constraint firstItem="l5M-AT-J3N" firstAttribute="centerX" secondItem="AMG-AS-X9X" secondAttribute="centerX" id="wLJ-MB-ZZP"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="AMG-AS-X9X" firstAttribute="centerX" secondItem="WHl-06-iQY" secondAttribute="centerX" id="01l-Xo-64e"/>
+                                            <constraint firstItem="AMG-AS-X9X" firstAttribute="centerY" secondItem="WHl-06-iQY" secondAttribute="centerY" id="6ZM-8u-f6z"/>
+                                            <constraint firstItem="AMG-AS-X9X" firstAttribute="width" secondItem="WHl-06-iQY" secondAttribute="width" multiplier="0.4:1" id="Xbi-cR-Ilq"/>
+                                            <constraint firstItem="AMG-AS-X9X" firstAttribute="height" secondItem="WHl-06-iQY" secondAttribute="height" multiplier="0.3:1" id="XnJ-6G-FSI"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.52941176470588236" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W4l-Ek-29f" secondAttribute="trailing" id="haR-hX-KnC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W4l-Ek-29f" secondAttribute="bottom" id="hzI-gd-W24"/>
+                            <constraint firstItem="W4l-Ek-29f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i8i-xB-K8F"/>
+                            <constraint firstItem="W4l-Ek-29f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wtu-HM-8G8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -559,6 +591,7 @@
                     <connections>
                         <outlet property="accountNameLable" destination="0Nc-bx-8cn" id="gXC-as-Uel"/>
                         <outlet property="changeLable" destination="QSm-5z-jhE" id="Ih3-NA-hms"/>
+                        <outlet property="enterAmount" destination="qdc-1P-JGo" id="L7z-4d-wfj"/>
                         <outlet property="moneyAmount" destination="tz6-4C-8FR" id="OaE-iE-Vuo"/>
                     </connections>
                 </viewController>

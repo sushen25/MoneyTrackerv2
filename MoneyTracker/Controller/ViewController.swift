@@ -14,6 +14,7 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
     var totalMoney : Int = 0
     var moneyArray : [Int] = [0, 0, 0, 0]
     
+    let defaults = UserDefaults.standard
     
     
     @IBOutlet weak var totalMoneyLable: UILabel!
@@ -23,7 +24,15 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        totalMoneyLable.text = "$\(totalMoney)"
+        if(defaults.array(forKey: "moneyArray") == nil) {
+            defaults.set(moneyArray, forKey: "moneyArray")
+            defaults.set(totalMoney, forKey: "totalMoney")
+        }
+        
+        
+        
+        updateUI()
+        
         
     }
 
@@ -50,9 +59,19 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
         }
     }
     func getTotalAmount(totalAmountMoney: Int, moneyAccountArray: [Int]) {
-        totalMoney = totalAmountMoney
-        moneyArray = moneyAccountArray
+        defaults.set(moneyAccountArray, forKey: "moneyArray")
+        defaults.set(totalAmountMoney, forKey: "totalMoney")
+        
         viewDidLoad()
+    }
+    
+    func updateUI() {
+        
+        moneyArray = defaults.array(forKey: "moneyArray") as! [Int]
+        totalMoney = defaults.integer(forKey: "totalMoney")
+        
+        
+        totalMoneyLable.text = "$\(totalMoney)"
     }
     
     

@@ -14,6 +14,7 @@ protocol SpecificViewControllerDelegate {
 
 class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     
+
     var delegate : SpecificViewControllerDelegate?
     
     // MARK: - user interface variables
@@ -45,7 +46,6 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         
         
         for item in 1...progressBars.count + 1 {
-            print(item)
             setMoneyLable(sectionNo: item)
             setProportionalWidthOfBar(account: item)
             
