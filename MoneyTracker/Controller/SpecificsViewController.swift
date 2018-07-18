@@ -19,12 +19,13 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     
     // MARK: - user interface variables
     
+    // labels
     @IBOutlet var accountLables: [UILabel]!
     @IBOutlet var moneyLables: [UILabel]!
     var moneyInAccounts : [Int] = [Int]()
     
     
-    
+    // progress bars
     @IBOutlet var progressBars: [UIView]!
     @IBOutlet weak var progressBarBackground: UIView!
     @IBOutlet var progressBarWidthArray: [NSLayoutConstraint]!

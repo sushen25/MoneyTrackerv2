@@ -37,7 +37,8 @@ class ChangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        accountNameLable.text = accName
         updateUI()
         
     }
@@ -177,6 +178,7 @@ class ChangeViewController: UIViewController {
         
         tempStr += "\(changeAmount)"
         changeLable.text = tempStr
+        
     }
     
     

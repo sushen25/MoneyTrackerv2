@@ -8,6 +8,7 @@ use_frameworks!
 # Pods for MoneyTracker
 
 pod 'SVProgressHUD'
+pod 'Charts'
 
 end
 

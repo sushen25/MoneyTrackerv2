@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD33C49E20FEF05300BDCA78 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33C49D20FEF05300BDCA78 /* ChartViewController.swift */; };
 		DD46A32520E8D569002928B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46A32420E8D569002928B3 /* AppDelegate.swift */; };
 		DD46A32720E8D569002928B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46A32620E8D569002928B3 /* ViewController.swift */; };
 		DD46A32A20E8D569002928B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD46A32820E8D569002928B3 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		4C261614AF8FBB65B77839FC /* Pods-MoneyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyTracker/Pods-MoneyTracker.release.xcconfig"; sourceTree = "<group>"; };
 		556133D4113D7F4E200BECC0 /* Pods_MoneyTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD33C49D20FEF05300BDCA78 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		DD46A32120E8D569002928B3 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD46A32420E8D569002928B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD46A32620E8D569002928B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				DD46A32420E8D569002928B3 /* AppDelegate.swift */,
 				DD742A1120E8DA2D004B7BA0 /* SpecificsViewController.swift */,
 				DD742A1320E9EEDE004B7BA0 /* ChangeViewController.swift */,
+				DD33C49D20FEF05300BDCA78 /* ChartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,10 +200,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoneyTracker/Pods-MoneyTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +243,7 @@
 				DD46A32720E8D569002928B3 /* ViewController.swift in Sources */,
 				DD46A32D20E8D569002928B3 /* MoneyTracker.xcdatamodeld in Sources */,
 				DD46A32520E8D569002928B3 /* AppDelegate.swift in Sources */,
+				DD33C49E20FEF05300BDCA78 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
