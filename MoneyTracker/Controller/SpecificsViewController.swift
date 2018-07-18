@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SpecificViewControllerDelegate {
-    func getTotalAmount(totalAmountMoney : Int, moneyAccountArray : [Int])
+    func getTotalAmount(totalAmountMoney : Int)
 }
 
 class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
@@ -80,6 +80,11 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         }
     }
     
+    @IBAction func chartsButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToChartView", sender: self)
+    }
+    
+    
     
     
     
@@ -96,7 +101,14 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
             changeViewController.moneyInAccount = accDataArray[senderAcc - 1].getCurrentMoneyAmount()
             
             
+        } else if (segue.identifier == "goToChartView") {
+            let chartViewController = segue.destination as! ChartViewController
+            
+            chartViewController.accountsDataModelArray = accDataArray
+            
+            
         }
+        
     }
     
     // Changed amount of money from change VC

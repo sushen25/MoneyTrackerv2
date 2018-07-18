@@ -12,7 +12,6 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
 
     //instance vars
     var totalMoney : Int = 0
-    var moneyArray : [Int] = [0, 0, 0, 0]
     
     let defaults = UserDefaults.standard
     
@@ -23,13 +22,6 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        if(defaults.array(forKey: "moneyArray") == nil) {
-            defaults.set(moneyArray, forKey: "moneyArray")
-            defaults.set(totalMoney, forKey: "totalMoney")
-        }
-        
-        
         
         updateUI()
         
@@ -50,27 +42,18 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
         if(segue.identifier == "goToSpecifics") {
             
             let specificVC = segue.destination as! SpecificsViewController
-            
-            
             specificVC.delegate = self
-            //specificVC.moneyInAccounts = moneyArray
             
             
         }
     }
-    func getTotalAmount(totalAmountMoney: Int, moneyAccountArray: [Int]) {
-        defaults.set(moneyAccountArray, forKey: "moneyArray")
+    func getTotalAmount(totalAmountMoney: Int) {
         defaults.set(totalAmountMoney, forKey: "totalMoney")
         
         viewDidLoad()
     }
     
     func updateUI() {
-        
-        moneyArray = defaults.array(forKey: "moneyArray") as! [Int]
-        totalMoney = defaults.integer(forKey: "totalMoney")
-        
-        
         totalMoneyLable.text = "$\(totalMoney)"
     }
     

@@ -403,11 +403,14 @@
                                 <rect key="frame" x="0.0" y="688" width="375" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLp-Ka-QZD">
-                                        <rect key="frame" x="10.000000000000004" y="17.000000000000004" width="56.333333333333343" height="56.333333333333343"/>
+                                        <rect key="frame" x="10" y="21.666666666666629" width="47" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dLp-Ka-QZD" secondAttribute="height" multiplier="1:1" id="Pnx-vy-pul"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="chart icon"/>
+                                        <connections>
+                                            <action selector="chartsButtonPressed:" destination="ubQ-XJ-wX1" eventType="touchUpInside" id="IL5-eQ-gFW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,7 +419,7 @@
                                     <constraint firstItem="dLp-Ka-QZD" firstAttribute="centerY" secondItem="kOa-nH-CMD" secondAttribute="centerY" id="UFt-Rs-eMT"/>
                                     <constraint firstItem="dLp-Ka-QZD" firstAttribute="leading" secondItem="kOa-nH-CMD" secondAttribute="leading" constant="10" id="duM-JG-sqe"/>
                                     <constraint firstAttribute="height" constant="90" id="ha0-Y9-KT8"/>
-                                    <constraint firstItem="dLp-Ka-QZD" firstAttribute="width" secondItem="kOa-nH-CMD" secondAttribute="width" multiplier="0.15:1" id="kao-1d-OXQ"/>
+                                    <constraint firstItem="dLp-Ka-QZD" firstAttribute="width" secondItem="kOa-nH-CMD" secondAttribute="width" multiplier="0.125:1" id="kao-1d-OXQ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elW-Fz-MB1">
@@ -482,7 +485,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="179.66666666666666"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GIX-64-gOw">
-                                                <rect key="frame" x="0.0" y="45.333333333333336" width="375" height="89.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="65" width="375" height="89.666666666666686"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="up4-Nq-rpX">
                                                         <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="89.666666666666671"/>
@@ -511,7 +514,7 @@
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="accButtonPressed:" destination="khp-kE-MEq" eventType="touchUpInside" id="uNU-DX-Fgm"/>
+                                                            <action selector="accButtonPressed:" destination="khp-kE-MEq" eventType="touchUpInside" id="hKA-BD-cWi"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPV-fH-57j">
@@ -526,13 +529,22 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwV-ce-Fu1">
+                                                <rect key="frame" x="10" y="35" width="48" height="30"/>
+                                                <state key="normal" title="&lt; Back"/>
+                                                <connections>
+                                                    <action selector="backButtonPressed:" destination="khp-kE-MEq" eventType="touchUpInside" id="Dwf-MP-Ly0"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="GIX-64-gOw" secondAttribute="trailing" id="GVr-sf-bo9"/>
                                             <constraint firstItem="GIX-64-gOw" firstAttribute="height" secondItem="ZJ3-SV-2lz" secondAttribute="height" multiplier="0.5:1" id="Gkt-dF-Yfm"/>
                                             <constraint firstItem="GIX-64-gOw" firstAttribute="leading" secondItem="ZJ3-SV-2lz" secondAttribute="leading" id="QY4-XT-BEo"/>
-                                            <constraint firstItem="GIX-64-gOw" firstAttribute="centerY" secondItem="ZJ3-SV-2lz" secondAttribute="centerY" id="h7f-5X-68j"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HwV-ce-Fu1" secondAttribute="trailing" constant="200" id="bK6-9h-hCm"/>
+                                            <constraint firstItem="HwV-ce-Fu1" firstAttribute="leading" secondItem="ZJ3-SV-2lz" secondAttribute="leading" constant="10" id="cKC-5M-QCq"/>
+                                            <constraint firstItem="GIX-64-gOw" firstAttribute="centerY" secondItem="ZJ3-SV-2lz" secondAttribute="centerY" constant="20" id="h7f-5X-68j"/>
+                                            <constraint firstItem="GIX-64-gOw" firstAttribute="top" secondItem="HwV-ce-Fu1" secondAttribute="bottom" id="wh7-eG-3ua"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYV-ei-1jp" customClass="LineChartView" customModule="Charts">
@@ -545,7 +557,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96078431372549022" green="0.52941176470588236" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.50980392156862742" green="0.73725490196078436" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1mL-hr-xNf" firstAttribute="top" secondItem="zyO-ac-8Pv" secondAttribute="top" id="6Av-Kz-SE7"/>
                             <constraint firstItem="ZBk-cI-GTX" firstAttribute="bottom" secondItem="1mL-hr-xNf" secondAttribute="bottom" id="LRg-YY-70i"/>

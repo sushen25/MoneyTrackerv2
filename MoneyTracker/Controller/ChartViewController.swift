@@ -13,17 +13,17 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     
-    var moneyData : [Double] = [Double]()
-    var dateData : [Date] = [Date]()
+    
+    var accountsDataModelArray : [TransactionDataModel]?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupChart(forAccount: accountsDataModelArray![0])
         
-        createDummyData()
-        setupChart(xAxisValues: dateData, yAxisValues: moneyData)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,11 +31,31 @@ class ChartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK:- buttons
     @IBAction func accButtonPressed(_ sender: UIButton) {
+        let tag = sender.tag
+        
+        if(tag >= 0 && tag <= 3) {
+            let account = accountsDataModelArray![tag]
+            setupChart(forAccount: account)
+        }
+        
         
     }
     
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            
+        }
+    }
+    
+    
     //MARK:- set up chart
+    func setupChart(forAccount acc : TransactionDataModel) {
+        setupChart(xAxisValues: acc.dateArray, yAxisValues: acc.moneyArray)
+    }
+    
     
     func setupChart(xAxisValues : [Date], yAxisValues : [Double]) {
         
@@ -73,21 +93,6 @@ class ChartViewController: UIViewController {
         
         //xAxis.valueFormatter = NewXAxisFormatter()
         
-        
-    }
-    
-    func createDummyData() {
-        
-        var currentDate = Date()
-        
-        for _ in 0..<20 {
-            currentDate = Date(timeInterval: 86400, since: currentDate)
-            let moneyVal = arc4random_uniform(250) + 100
-            
-            moneyData.append(Double(moneyVal))
-            dateData.append(currentDate)
-            
-        }
         
     }
     
