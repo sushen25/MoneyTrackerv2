@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD33C49E20FEF05300BDCA78 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33C49D20FEF05300BDCA78 /* ChartViewController.swift */; };
+		DD33C4A020FF02C400BDCA78 /* TransactionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33C49F20FF02C400BDCA78 /* TransactionDataModel.swift */; };
 		DD46A32520E8D569002928B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46A32420E8D569002928B3 /* AppDelegate.swift */; };
 		DD46A32720E8D569002928B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46A32620E8D569002928B3 /* ViewController.swift */; };
 		DD46A32A20E8D569002928B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD46A32820E8D569002928B3 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		4C261614AF8FBB65B77839FC /* Pods-MoneyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyTracker/Pods-MoneyTracker.release.xcconfig"; sourceTree = "<group>"; };
 		556133D4113D7F4E200BECC0 /* Pods_MoneyTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD33C49D20FEF05300BDCA78 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		DD33C49F20FF02C400BDCA78 /* TransactionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataModel.swift; sourceTree = "<group>"; };
 		DD46A32120E8D569002928B3 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD46A32420E8D569002928B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD46A32620E8D569002928B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		DD3E85D020ECA58400064014 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD33C49F20FF02C400BDCA78 /* TransactionDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD33C4A020FF02C400BDCA78 /* TransactionDataModel.swift in Sources */,
 				DD742A1420E9EEDE004B7BA0 /* ChangeViewController.swift in Sources */,
 				DD742A1220E8DA2D004B7BA0 /* SpecificsViewController.swift in Sources */,
 				DD46A32720E8D569002928B3 /* ViewController.swift in Sources */,

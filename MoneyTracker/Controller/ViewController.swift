@@ -53,7 +53,7 @@ class ViewController: UIViewController, SpecificViewControllerDelegate {
             
             
             specificVC.delegate = self
-            specificVC.moneyInAccounts = moneyArray
+            //specificVC.moneyInAccounts = moneyArray
             
             
         }

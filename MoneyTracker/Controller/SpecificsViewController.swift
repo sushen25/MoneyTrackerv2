@@ -22,7 +22,6 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     // labels
     @IBOutlet var accountLables: [UILabel]!
     @IBOutlet var moneyLables: [UILabel]!
-    var moneyInAccounts : [Int] = [Int]()
     
     
     // progress bars
@@ -30,6 +29,13 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     @IBOutlet weak var progressBarBackground: UIView!
     @IBOutlet var progressBarWidthArray: [NSLayoutConstraint]!
     
+    //Chart variables tranctions
+    var acc1Data = TransactionDataModel()
+    var acc2Data = TransactionDataModel()
+    var acc3Data = TransactionDataModel()
+    var acc4Data = TransactionDataModel()
+    
+    var accDataArray : [TransactionDataModel] = [TransactionDataModel]()
     
     var senderAcc : Int = 0 // var used to tell 'prepare for segue' which acc to process
     
@@ -45,12 +51,10 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         accountLables[2].text = "CSH"
         accountLables[3].text = "ACC"
         
+        accDataArray = [acc1Data, acc2Data, acc3Data, acc4Data]
         
-        for item in 1...progressBars.count + 1 {
-            setMoneyLable(sectionNo: item)
-            setProportionalWidthOfBar(account: item)
-            
-        }
+        
+        updateUI()
         
     }
 
@@ -72,7 +76,7 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true) {
-            self.delegate?.getTotalAmount(totalAmountMoney: self.sumOfArray(array: self.moneyInAccounts), moneyAccountArray: self.moneyInAccounts)
+            
         }
     }
     
@@ -89,19 +93,22 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
             
             changeViewController.accName = accountLables[senderAcc - 1].text!
             changeViewController.accNumber = senderAcc
-            changeViewController.moneyInAccount = moneyInAccounts[senderAcc - 1]
+            changeViewController.moneyInAccount = accDataArray[senderAcc - 1].getCurrentMoneyAmount()
             
             
         }
     }
     
+    // Changed amount of money from change VC
     func accountChanged(accountNumber: Int, newMoneyAmount: Int) {
         
         // resetting the array
-        moneyInAccounts[accountNumber - 1] = newMoneyAmount
+        let currentDate = Date()
+        let dataModelNo = accDataArray[accountNumber - 1]
+        addDataPoint(amountOfMoney: Double(newMoneyAmount), at: currentDate, dataModel: dataModelNo)
         
-        viewDidLoad()
         
+        updateUI()
         
     }
     
@@ -109,39 +116,37 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
     // MARK: - mutators to change ui elements
     
     // set width of the progress bar for a particular section
-    func setWidthOfBar(sectionNo : Int, setWidth : Double) {
-        
-        //section numbers start from 1 to end
-        
+    func setWidthOfBar(accountNo : Int, setWidth : Double) {
         if (setWidth > 0) {
-            progressBarWidthArray[sectionNo - 1].constant = CGFloat(setWidth)
-            
+            progressBarWidthArray[accountNo - 1].constant = CGFloat(setWidth)
         }
-        self.view.layoutIfNeeded()
         
+        self.view.layoutIfNeeded()
     }
     
     
-    func setMoneyLable(sectionNo : Int) {
-        if(sectionNo >= 1 && sectionNo <= 4) {
-        let moneyLable = moneyLables[sectionNo - 1]
-        let amount = moneyInAccounts[sectionNo - 1]
+    func setMoneyLable(account : Int) {
+        if(account >= 1 && account <= 4) {
+            let moneyLable = moneyLables[account - 1]
+            
+            let accDataModel = accDataArray[account - 1]
+            let amount = accDataModel.getCurrentMoneyAmount()
         
         
-        moneyLable.text = "$\(amount)"
+            moneyLable.text = "$\(amount)"
             
         }
         
     }
     
     func setProportionalWidthOfBar(account : Int) {
-        let totalMoney : Int = sumOfArray(array: moneyInAccounts)
+        let totalMoney : Int = getTotalAmountOfMoney(fromArray: accDataArray)
         let widthOfTotalBar = Double(progressBarBackground.frame.width)
-        let amountOfAccount = moneyInAccounts[account - 1]
+        let amountOfAccount = accDataArray[account - 1].getCurrentMoneyAmount()
         
         let percentOfProgressBar : Double = Double(amountOfAccount)/Double(totalMoney)
         
-        setWidthOfBar(sectionNo: account, setWidth: percentOfProgressBar * widthOfTotalBar)
+        setWidthOfBar(accountNo: account, setWidth: percentOfProgressBar * widthOfTotalBar)
         
     }
     
@@ -156,17 +161,35 @@ class SpecificsViewController: UIViewController, ChangeViewControllerDelegate {
         return sum
         
     }
+    
+    func getTotalAmountOfMoney(fromArray arr : [TransactionDataModel]) -> Int {
+        var sum = 0
+        for i in 0..<arr.count {
+            let dataModel = arr[i]
+            let moneyInAccount = dataModel.getCurrentMoneyAmount()
+            
+            sum += moneyInAccount
+            
+        }
+        
+        return Int(sum)
+        
+    }
+    
+    //MARK:- helper methods
+    func addDataPoint(amountOfMoney : Double, at date : Date, dataModel : TransactionDataModel) {
+        dataModel.moneyArray.append(amountOfMoney)
+        dataModel.dateArray.append(date)
+    }
+    
+    func updateUI() {
+        for item in 1...progressBars.count + 1 {
+            setMoneyLable(account: item)
+            setProportionalWidthOfBar(account: item)
+            
+        }
+    }
 
  
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
